@@ -35,6 +35,8 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+import com.google.firebase.iid.FirebaseInstanceId;
+
 public class MainActivity extends AppCompatActivity implements
         LoaderManager.LoaderCallbacks<Cursor> {
 
@@ -95,14 +97,16 @@ public class MainActivity extends AppCompatActivity implements
             Log.d(LOG_TAG, "Contains: " + extras.getString("test"));
         }
 
-        // TODO (1) Make a new package for your FCM service classes called "fcm"
-            // TODO (2) Create a new Service class that extends FirebaseInstanceIdService.
+        // COMPLETED (1) Make a new package for your FCM service classes called "fcm"
+            // COMPLETED (2) Create a new Service class that extends FirebaseInstanceIdService.
             // You'll need to implement the onTokenRefresh method. Simply have it print out
             // the new token.
-        // TODO (3) Here, in MainActivity, get a token using FirebaseInstanceId.getInstance().getToken()
-        // TODO (4) Get the message from that token and print it in a log statement
-
-
+        // COMPLETED (3) Here, in MainActivity, get a token using FirebaseInstanceId.getInstance().getToken()
+        String token = FirebaseInstanceId.getInstance().getToken();
+        // COMPLETED (4) Get the message from that token and print it in a log statement
+        if(token != null) {
+            Log.d(LOG_TAG, "Firebase Token: " + token);
+        }
     }
 
     @Override
