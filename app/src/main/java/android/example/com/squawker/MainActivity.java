@@ -89,8 +89,8 @@ public class MainActivity extends AppCompatActivity implements
         getSupportLoaderManager().initLoader(LOADER_ID_MESSAGES, null, this);
 
 
-        // TODO (1) Make a new Service in the fcm package that extends from FirebaseMessagingService.
-            // TODO (2) As part of the new Service - Override onMessageReceived. This method will
+        // COMPLETED (1) Make a new Service in the fcm package that extends from FirebaseMessagingService.
+            // COMPLETED (2) As part of the new Service - Override onMessageReceived. This method will
             // be triggered whenever a squawk is received. You can get the data from the squawk
             // message using getData(). When you send a test message, this data will include the
             // following key/value pairs:
@@ -108,18 +108,8 @@ public class MainActivity extends AppCompatActivity implements
                 // look at the notes in the classroom for help.
 
 
-        // TODO (5) You can delete the code below for getting the extras from a notification message,
+        // COMPLETED (5) You can delete the code below for getting the extras from a notification message,
         // since this was for testing purposes and not part of Squawker.
-        
-        // Gets the extra data from the intent that started the activity. For *notification*
-        // messages, this will contain key value pairs stored in the *data* section of the message.
-        Bundle extras = getIntent().getExtras();
-        // Checks if the extras exist and if the key "test" from our FCM message is in the intent
-        if (extras != null && extras.containsKey("test")) {
-            // If the key is there, print out the value of "test"
-            Log.d(LOG_TAG, "Contains: " + extras.getString("test"));
-        }
-
 
         // Get token from the ID Service you created and show it in a log
         String token = FirebaseInstanceId.getInstance().getToken();
